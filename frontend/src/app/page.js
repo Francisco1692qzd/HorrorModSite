@@ -13,10 +13,12 @@ export default function Home() {
   }, []);
 
   const handleDownload = async (mod) => {
-    // increment counter, then download
     try { await fetch(`${API}/api/mods/${mod.slug}/download`, { method: "POST" }); } catch {}
     const ver = mod.versions[0];
-    if (ver) window.location.href = `${API}${ver.downloadUrl}`;
+    if (!ver) return;
+    // worker returns absolute URL (https://.../files/xxx.jar), local backend returns /files/xxx.jar
+    const url = ver.downloadUrl.startsWith('http') ? ver.downloadUrl : `${API}${ver.downloadUrl}`;
+    window.location.href = url;
   };
 
   return (
