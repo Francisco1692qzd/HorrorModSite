@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: horrormodsite-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: STORAGE_TYPE
+        sync: false
+      - key: PIX_KEY
+        sync: false
+      - key: PIX_NAME
+        sync: false
+      - key: PAYPAL_URL
+        sync: false
+      - key: ADMIN_TOKEN
+        sync: false
+      - key: CDN_BASE_URL
+        sync: false

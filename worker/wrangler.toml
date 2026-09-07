@@ -1,0 +1,15 @@
+name = "horrormodsite-backend"
+main = "src/index.js"
+compatibility_date = "2024-12-01"
+
+# Always-on free forever - no card needed (uses Workers KV)
+# KV for mods.json + small .jar storage (<25MB per file). For larger jars, add R2 later.
+
+[[kv_namespaces]]
+binding = "MODS_KV"
+id = "9099908b84e146d78d82410ad575274e"
+
+[vars]
+PIX_KEY = "SEU-PIX-AQUI"
+PIX_NAME = "Nome do seu pai"
+PAYPAL_URL = "https://paypal.me/seulink"
